@@ -1,357 +1,168 @@
-<!DOCTYPE html>
-<html>
-
+<!DOCTYPE html><html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday Samiha 🎂</title>
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
+<title>Happy Birthday Nausin 🎂</title><style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(135deg,#f8c6ff,#c9f5ff);
-overflow:hidden;
-text-align:center;
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f6c5ff, #c8f8ff);
+  overflow: hidden;
+  text-align: center;
 }
 
-.box{
-background:white;
-padding:35px;
-width:90%;
-max-width:420px;
-border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,.2);
+.box {
+  background: white;
+  padding: 30px 20px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  z-index: 2;
 }
 
-h1{
-color:#ff3f88;
-margin-bottom:20px;
+h1 {
+  color: #ff4f92;
+  margin-bottom: 20px;
+  font-size: 28px;
 }
 
-button{
-
-padding:12px 22px;
-
-border:none;
-
-border-radius:25px;
-
-margin:8px;
-
-background:#ff4f98;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
+button {
+  padding: 12px 20px;
+  margin: 8px;
+  border: none;
+  border-radius: 25px;
+  background: #ff5aa5;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
 }
 
-.hidden{
-display:none;
+button:active {
+  transform: scale(.95);
 }
 
-#final{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-color:white;
-
-background:
-linear-gradient(
-180deg,
-#ff75b5,
-#ffd86b
-);
-
+.hidden {
+  display: none;
 }
 
-.note{
-
-font-size:28px;
-
-padding:25px;
-
+#final {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #ff76b7, #ffd56a, #bda0ff);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding: 20px;
+  overflow: hidden;
 }
 
-.cake{
-
-font-size:120px;
-
-animation:bounce 1.5s infinite;
-
+.cake {
+  font-size: 100px;
+  animation: bounce 1.5s infinite;
+  z-index: 2;
 }
 
-.star{
-
-position:absolute;
-
-font-size:28px;
-
-animation:up 5s linear infinite;
-
+.note {
+  font-size: 25px;
+  line-height: 1.5;
+  padding: 20px;
+  z-index: 2;
 }
 
-.confetti{
-
-position:absolute;
-
-width:10px;
-
-height:10px;
-
-animation:fall 4s linear infinite;
-
+.star {
+  position: absolute;
+  font-size: 25px;
+  animation: fly 5s linear infinite;
 }
 
-@keyframes bounce{
-
-50%{
-transform:
-translateY(-18px);
+.confetti {
+  position: absolute;
+  width: 9px;
+  height: 13px;
+  animation: fall 4s linear infinite;
 }
 
+@keyframes bounce {
+  50% { transform: translateY(-15px) rotate(5deg); }
 }
 
-@keyframes up{
-
-0%{
-transform:
-translateY(100vh);
+@keyframes fly {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-100px) rotate(360deg); }
 }
 
-100%{
-transform:
-translateY(-100px);
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(720deg); }
+}
+</style></head><body><div class="box" id="one">
+  <h1>Hey NAUSIN!<br>Do u know what's today?</h1>
+  <button onclick="yesBtn()">Yes</button>
+  <button onclick="nextBtn()">No</button>
+  <p id="a" style="margin-top:15px;color:#ff4081;font-size:20px;"></p>
+</div><div class="box hidden" id="two">
+  <h1>It's ur birthday 🎇🎂</h1>
+  <button onclick="endBtn()">Want to end</button>
+  <button onclick="giftBtn()">Want the gift</button>
+  <p id="b" style="margin-top:15px;color:#ff4081;font-size:20px;"></p>
+</div><div id="final">
+  <div class="cake">🎁🎂✨</div>
+  <div class="note">
+    Happy birthday to u and many many returns of the day 💖🎉
+  </div>
+</div><script>
+function yesBtn() {
+  document.getElementById("a").innerHTML = "Think again 😏";
 }
 
+function nextBtn() {
+  document.getElementById("one").classList.add("hidden");
+  document.getElementById("two").classList.remove("hidden");
 }
 
-@keyframes fall{
-
-0%{
-transform:
-translateY(-20px);
+function endBtn() {
+  document.getElementById("b").innerHTML =
+    "Why! First take ur gift 🎁";
 }
 
-100%{
-transform:
-translateY(100vh);
+function giftBtn() {
+  document.getElementById("two").classList.add("hidden");
+  document.getElementById("final").style.display = "flex";
+
+  for (let i = 0; i < 100; i++) {
+    let c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.backgroundColor =
+      `hsl(${Math.random() * 360},100%,60%)`;
+    c.style.animationDuration =
+      (Math.random() * 3 + 2) + "s";
+    c.style.animationDelay = Math.random() * 3 + "s";
+    document.getElementById("final").appendChild(c);
+  }
+
+  for (let i = 0; i < 30; i++) {
+    let s = document.createElement("div");
+    s.className = "star";
+    s.innerHTML = "⭐";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.animationDuration =
+      (Math.random() * 5 + 3) + "s";
+    s.style.animationDelay = Math.random() * 4 + "s";
+    document.getElementById("final").appendChild(s);
+  }
 }
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div
-class="box"
-id="page1">
-
-<h1>
-Hey SAMIHA!<br>
-Do u know what's today?
-</h1>
-
-<button
-onclick="yesTap()">
-Yes
-</button>
-
-<button
-onclick="goNext()">
-No
-</button>
-
-<p id="text1"></p>
-
-</div>
-
-
-<div
-class="box hidden"
-id="page2">
-
-<h1>
-It's ur birthday 🎇🎂
-</h1>
-
-<button
-onclick="endTap()">
-Want to end
-</button>
-
-<button
-onclick="gift()">
-Want the gift
-</button>
-
-<p id="text2"></p>
-
-</div>
-
-
-<div id="final">
-
-<div class="cake">
-🎁🎂✨
-</div>
-
-<div class="note">
-Happy birthday to u and many many returns of the day 💖
-</div>
-
-</div>
-
-
-<script>
-
-function yesTap(){
-
-document
-.getElementById(
-"text1"
-)
-.innerHTML=
-"Think again 😏";
-
-}
-
-function goNext(){
-
-page1
-.classList
-.add(
-"hidden"
-);
-
-page2
-.classList
-.remove(
-"hidden"
-);
-
-}
-
-function endTap(){
-
-document
-.getElementById(
-"text2"
-)
-.innerHTML=
-"Why! First take ur gift 🎁";
-
-}
-
-function gift(){
-
-page2
-.classList
-.add(
-"hidden"
-);
-
-final
-.style
-.display=
-"flex";
-
-for(
-let i=0;
-i<80;
-i++
-){
-
-let c=
-document
-.createElement(
-"div"
-);
-
-c.className=
-"confetti";
-
-c.style.left=
-Math.random()*100
-+"vw";
-
-c.style.background=
-`hsl(
-${Math.random()*360},
-100%,
-60%
-)`;
-
-c.style.animationDuration=
-(
-Math.random()*3
-+2
-)
-+"s";
-
-document.body
-.appendChild(c);
-
-}
-
-for(
-let i=0;
-i<30;
-i++
-){
-
-let s=
-document
-.createElement(
-"div"
-);
-
-s.className=
-"star";
-
-s.innerHTML=
-"⭐";
-
-s.style.left=
-Math.random()*100
-+"vw";
-
-document.body
-.appendChild(s);
-
-}
-
-}
-
-</script>
-
-</body>
-
+</script></body>
 </html>
